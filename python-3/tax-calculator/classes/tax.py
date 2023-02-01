@@ -5,16 +5,10 @@ path.append('..')
 from abstract.tax import TaxAbstract
 
 class Tax(TaxAbstract):
-    def config(self, config) -> None:
-        self.config = config
+    def config(self, config: dict) -> None:
+        self.tax_config = config
 
-    def monthly(self):
-        pass
-
-    def yearly(self):
-        pass
-
-    def take_home(self):
+    def take_home(self) -> None:
         print()
-        print(self.config)
+        print(self.tax_config)
         print()

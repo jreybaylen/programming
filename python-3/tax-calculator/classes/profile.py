@@ -7,7 +7,7 @@ from .tax import Tax
 
 class Profile(ProfileAbstract, Tax):
 
-    def get_information(self):
+    def get_information(self) -> None:
         self.first_name = input('Enter First Name: ')
         self.last_name = input('Enter Last Name: ')
         self.middle_name = input('Enter Middle Name: ')
@@ -29,7 +29,7 @@ class Profile(ProfileAbstract, Tax):
             'civil_status': civil_status
         })
 
-    def display_information(self):
+    def display_information(self) -> None:
         print()
         print('************************************************')
         print('Account Name: {}'.format(self.get_name()))
@@ -38,12 +38,14 @@ class Profile(ProfileAbstract, Tax):
         ))
         print('************************************************')
 
-    def get_name(self):
+    def get_name(self) -> str:
         return '{l}, {f} {m}'.format(
             l=self.last_name,
             f=self.first_name,
             m=self.middle_name
         )
 
-    def compute_tax(self, tax_type):
-        self.yearly() if (tax_type == 'yearly') else self.monthly()
+    def compute_tax(self, tax_type: str) -> None:
+        dict(self.tax_config).update({
+            'tax_type': tax_type
+        })

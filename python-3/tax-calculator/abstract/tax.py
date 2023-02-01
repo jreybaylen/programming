@@ -7,13 +7,5 @@ class TaxAbstract(ABC):
         pass
 
     @abstractmethod
-    def monthly():
-        pass
-
-    @abstractmethod
-    def yearly():
-        pass
-
-    @abstractmethod
     def take_home():
         pass
